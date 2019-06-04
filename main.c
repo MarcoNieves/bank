@@ -23,7 +23,7 @@ int depmas();
 int demenos();
 
 void totalA();
-void ordenamiento(int mat[3][7]);
+void ordenamiento();
 
 int main() {
 
@@ -200,8 +200,8 @@ int main() {
     case 8:
 
       printf("ACOMODO DE MENOR A MAYOR DE LOS DEPOSITOS DE TODA LA MATRIZ \n");
-      int arreglo1;
-      ordenamiento(arreglo1);
+      // int arreglo1;
+      ordenamiento();
       break;
 
       puts("-------------------------------------------------------------------------------------------------------------------------------------------------");
@@ -260,7 +260,25 @@ void mostrar() { //(2)
     puts("\n");
     for (j = 0; j < 7; j++) {
       printf("%i \t ", mat[i][j]); //muestra la matriz
+    }
+  }
+}
 
+/**
+ * Usando el método burbuja un array es ordenado.
+ *
+ */
+void sort(int matrix[][7], int x, int y) {
+  int i, c, d, swap;
+  for (i = 0; i < x; i++) {
+    for (c = 0 ; c < ( y - 1 ); c++) {
+      for (d = 0 ; d < y - c - 1; d++) {
+        if (matrix[i][d] > matrix[i][d + 1]) {
+          swap = matrix[i][d];
+          matrix[i][d] = matrix[d + 1];
+          matrix[i][d + 1] = swap;
+        }
+      }
     }
   }
 }
@@ -315,7 +333,16 @@ void totalA() { //(7)
   }
 }
 
-void ordenamiento(int mat[3][7]) { //(8)
+void ordenamiento() { //(8)
+  int i, j;
+  sort(mat, 3, 7);
+  for (i = 0; i < 3; i++) {
+    for (j = 0; j < 7; j++) {
+      printf("%f ", mat[i][j]);
+    }
+    printf("\n");
+  }
+  /*
   int i, j, c, k, aux;
   int arreglo[21];
   int hora = time(NULL);
@@ -364,8 +391,9 @@ void ordenamiento(int mat[3][7]) { //(8)
 
         }
       }
+
     }
-  }
+  }*/
 }
 
 //problemas del criterios de evaluacion 7,5,3
