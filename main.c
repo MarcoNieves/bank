@@ -1,6 +1,6 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<math.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 #include <time.h>
 
 
@@ -9,11 +9,11 @@
  * 	- Marco Antonio Nieves Esquivel
  *  - Christofer Cervantes Trujillo
  * Carrera: IMAI (Ingenieria en Manufactura y Automatizacion Industrial)
- * Grado y Grupo: 2� A
+ * Grado y Grupo: 2° "A"
  */
 
 int mat[3][7], i, j, codigo;
-int vec[3];
+float vec[3];
 float deposito, s, p;
 void llenado();
 void mostrar();
@@ -267,19 +267,14 @@ void mostrar() { //(2)
 
 void puntos() { //(3)
 
-  float s = 0;
-  float mat[3][7];
   printf("\n");
-  int hora = time(NULL);
-  srand(hora);
+  int i, j;
   for (i = 0; i < 3; i++) {
+    vec[i] = 0;
     for (j = 0; j < 7; j++) {
-      printf("\n");
-      printf("%i,%i: ", i, j);
-      mat[i][j] = rand() % 10 + 1;
-      printf("-------------------\n");
-
+      vec[i] += mat[i][j];
     }
+    printf("%i: %f\n", i, vec[i]);
   }
 } //como mostrar la matriz 3x7 y  con un vector que sume los tres renglones
 
