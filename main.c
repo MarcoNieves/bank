@@ -268,14 +268,17 @@ void mostrar() { //(2)
 void puntos() { //(3)
 
   printf("\n");
+  float max = 0;
   int i, j;
   for (i = 0; i < 3; i++) {
     vec[i] = 0;
     for (j = 0; j < 7; j++) {
       vec[i] += mat[i][j];
     }
+    max = vec[i] > max ? vec[i] : max;
     printf("%i: %f\n", i, vec[i]);
   }
+  printf("El número mas alto es: %f\n", max);
 } //como mostrar la matriz 3x7 y  con un vector que sume los tres renglones
 
 void totalA() { //(7)
