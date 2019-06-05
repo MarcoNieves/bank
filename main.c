@@ -25,6 +25,7 @@ int demenos();
 void totalA();
 void ordenamiento();
 
+
 int main() {
 
   int opcion;
@@ -41,7 +42,7 @@ int main() {
     printf("\n");
     printf("(1).- LLENADO DE MATRIZ DE DEPOSITOS: \n");
     printf("(2).- MOSTRADO DE DATOS DE LA MATRIZ DADA: \n");
-    printf("(*3).- VISUALIZACION DE PUNTOS  PERSONAS QUE TENGAN DEPOSITOS MAS ALTOS \n");
+    printf("(3).- VISUALIZACION DE PUNTOS  PERSONAS QUE TENGAN DEPOSITOS MAS ALTOS \n");
     printf("(4).-(funcion float) PROMEDIO GENERAL DE LOS DEPSOSITOS QUE TENGAN ADENTRO DE LA MATRIZ \n");
     printf("(5).-(funcion int )CAPTURA DEL DEPOSITO MAS ALTO \n");
     printf("(6).-(funcion int)CAPTURA DEL DEPOSITO MAS BAJO \n");
@@ -102,7 +103,7 @@ int main() {
       printf("\n");
       printf("El promedio total general de los depositos en general es: %f \n", prom);
 
-      return prom;
+      // return prom;
 
       break;
 
@@ -294,9 +295,11 @@ void puntos() { //(3)
       vec[i] += mat[i][j];
     }
     max = vec[i] > max ? vec[i] : max;
-    printf("%i: %f\n", i, vec[i]);
+	printf("%i: %f\n", i, vec[i]);
+	
   }
-  printf("El número mas alto es: %f\n", max);
+  printf("El numero mas alto es para los 5 puntos es: %f \n", max);
+
 } //como mostrar la matriz 3x7 y  con un vector que sume los tres renglones
 
 void totalA() { //(7)
@@ -334,14 +337,31 @@ void totalA() { //(7)
 }
 
 void ordenamiento() { //(8)
-  int i, j;
-  sort(mat, 3, 7);
+ printf("\n");
+  float max = 0;
+  int i, j, aux;
   for (i = 0; i < 3; i++) {
+    vec[i] = 0;
     for (j = 0; j < 7; j++) {
-      printf("%f ", mat[i][j]);
+      vec[i] += mat[i][j];
     }
+    max = vec[i] > max ? vec[i] : max;
+	printf("%i: %f\n", i, vec[i]);
+	printf ("\n");
+	     if ( vec[3] > vec [j + 1]){
+			aux = vec [j];
+			vec [j] = vec [j + 1];
+			vec [j + 1] = aux;      // como se acomodan de modo ascendente
+	     }
+	   }
+  
     printf("\n");
-  }
+    printf ("El acomodo de menor a mayor de los depositos acumulados son: \n");
+          for (i = 0; i < 3; i++){
+				printf ("\n");
+				printf ("%f \n ", vec [i]);
+          } 
+		}
   /*
   int i, j, c, k, aux;
   int arreglo[21];
@@ -394,7 +414,7 @@ void ordenamiento() { //(8)
 
     }
   }*/
-}
+
 
 //problemas del criterios de evaluacion 7,5,3
 // a solucionarr 3,8,9 del programa
