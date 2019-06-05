@@ -24,7 +24,7 @@ int demenos();
 
 void totalA();
 void ordenamiento();
-
+void busqueda();
 
 int main() {
 
@@ -210,8 +210,8 @@ int main() {
     case 9:
 
       printf("BUSQUEDA DEL VALOR EN DESPUES DE SACAR LA SUMA DE LOS 7 ANIOS DE LOS 3 CLIENTES \n");
+      busqueda();
       break;
-
       puts("--------------------------------------------------------------------------------------------------------------------------------------------------");
 
     case 10:
@@ -336,6 +336,23 @@ void ordenamiento() { //(8)
   for (i = 0; i < size; i++) {
     printf("%f \n", vec[i]);
   }
+}
+
+void busqueda() {
+    int i, j, size = 3;
+    float val;
+    int encontrado = 0;
+    printf("Ingresa el valor buscado: ");
+    scanf("%f", &val);
+    for(i = 0; i < size; i++) {
+        if(vec[i] == val) {
+            printf("El valor %f ha sido encontrado en la posición %i.", val, i);
+            encontrado = 1;
+        }
+    }
+    if(!encontrado) {
+        printf("El valor %f no ha sido encontrado.", val);
+    }
 }
   /*
   int i, j, c, k, aux;
