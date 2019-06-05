@@ -265,25 +265,6 @@ void mostrar() { //(2)
   }
 }
 
-/**
- * Usando el método burbuja un array es ordenado.
- *
- */
-void sort(int matrix[][7], int x, int y) {
-  int i, c, d, swap;
-  for (i = 0; i < x; i++) {
-    for (c = 0 ; c < ( y - 1 ); c++) {
-      for (d = 0 ; d < y - c - 1; d++) {
-        if (matrix[i][d] > matrix[i][d + 1]) {
-          swap = matrix[i][d];
-          matrix[i][d] = matrix[d + 1];
-          matrix[i][d + 1] = swap;
-        }
-      }
-    }
-  }
-}
-
 void puntos() { //(3)
 
   printf("\n");
@@ -336,32 +317,27 @@ void totalA() { //(7)
   }
 }
 
+/**
+ * Usando el método burbuja un array es ordenado.
+ *
+ */
 void ordenamiento() { //(8)
- printf("\n");
-  float max = 0;
-  int i, j, aux;
-  for (i = 0; i < 3; i++) {
-    vec[i] = 0;
-    for (j = 0; j < 7; j++) {
-      vec[i] += mat[i][j];
+  int c, d, y = 3;
+  float swap;
+    for (c = 0 ; c < ( y - 1 ); c++) {
+      for (d = 0 ; d < y - c - 1; d++) {
+        if (vec[d] > vec[d + 1]) {
+          swap = vec[d];
+          vec[d] = vec[d + 1];
+          vec[d + 1] = swap;
+        }
     }
-    max = vec[i] > max ? vec[i] : max;
-	printf("%i: %f\n", i, vec[i]);
-	printf ("\n");
-	     if ( vec[3] > vec [j + 1]){
-			aux = vec [j];
-			vec [j] = vec [j + 1];
-			vec [j + 1] = aux;      // como se acomodan de modo ascendente
-	     }
-	   }
-  
-    printf("\n");
-    printf ("El acomodo de menor a mayor de los depositos acumulados son: \n");
-          for (i = 0; i < 3; i++){
-				printf ("\n");
-				printf ("%f \n ", vec [i]);
-          } 
-		}
+  }
+  int i, j;
+  for (i = 0; i < 3; i++) {
+    printf("%f \n", vec[i]);
+  }
+}
   /*
   int i, j, c, k, aux;
   int arreglo[21];
