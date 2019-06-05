@@ -322,19 +322,18 @@ void totalA() { //(7)
  *
  */
 void ordenamiento() { //(8)
-  int c, d, y = 3;
+  int i, j, size = 3;
   float swap;
-    for (c = 0 ; c < ( y - 1 ); c++) {
-      for (d = 0 ; d < y - c - 1; d++) {
-        if (vec[d] > vec[d + 1]) {
-          swap = vec[d];
-          vec[d] = vec[d + 1];
-          vec[d + 1] = swap;
+    for (i = 0 ; i < ( size - 1 ); i++) {
+      for (j = 0 ; j < size - i - 1; j++) {
+        if (vec[j] > vec[j + 1]) {
+          swap = vec[j];
+          vec[j] = vec[j + 1];
+          vec[j + 1] = swap;
         }
     }
   }
-  int i, j;
-  for (i = 0; i < 3; i++) {
+  for (i = 0; i < size; i++) {
     printf("%f \n", vec[i]);
   }
 }
